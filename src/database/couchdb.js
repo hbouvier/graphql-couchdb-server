@@ -22,4 +22,33 @@ const couch = new NodeCouchDb({
   }
 });
 
-module.exports = couch;
+function getAll(database, type) {
+  return async function () {
+    return couch
+      .get(database, `_all_docs?include_docs=true&start_key="${type}:"&end_key="${type}:{}"`)
+      .then(
+        ({data, headers, status}) => data.rows
+          .map(row => row.doc)
+      );
+  }
+}
+
+function get(database, type) {
+  return async function (id) {
+    return couch
+      .get(database, id)
+      .then(
+        ({data, headers, status}) => {
+        // data is json response
+        // headers is an object with all response headers
+        // status is statusCode number
+        return data;
+    });
+  }
+}
+
+module.exports = {
+  couch: couch,
+  getAll: getAll,
+  get: get
+};

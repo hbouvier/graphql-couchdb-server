@@ -5,17 +5,17 @@ const init  = require('./src/seeding/initialize');
 const start = require('./src/server');
 
 program
-  .option('-s, --seed', 'seed the database')
-  .option('-g, --graphql', 'start the graphql server')
+  .option('-i, --initialize', 'seed the database')
+  .option('-s, --server', 'start the graphql server')
  
 program.parse(process.argv);
 
-if (program.seed) {
+if (program.initialize) {
 	console.log('Seeing the database');
 	init()
 		.then(() => console.log('database seeded'),
 			err => console.log(err));
-} else if (program.graphql) {
+} else if (program.server) {
 	console.log('Starting the GraphQL server');
 	start();
 } else {
