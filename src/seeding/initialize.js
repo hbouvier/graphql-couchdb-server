@@ -110,8 +110,8 @@ const Commentaire = [
   	id: "commentaire:2",
     titre: "Belle decouverte",
     text: "Je n'avais jamais entendu parle",
-    auteurId: "auteur:1",
-    articleId: "article:1",
+    auteurId: "auteur:2",
+    articleId: "article:2",
     pointage: 5,
     creation: "2020/03/16"
   },
@@ -121,7 +121,7 @@ const Commentaire = [
     titre: "Wow!",
     text: "Est-ce possible",
     auteurId: "auteur:1",
-    articleId: "article:2",
+    articleId: "article:3",
     pointage: 1,
     creation: "2020/03/16"
   },
